@@ -1,6 +1,6 @@
 import {createStore, applyMiddleware} from 'redux';
+
 import {rootReducer} from './../reducers';
-//import DevTools from 'containers/DevTools'
 import reduxThunk from 'redux-thunk';
 import {browserHistory} from 'react-router';
 import {routerMiddleware} from 'react-router-redux';
@@ -17,10 +17,7 @@ export default function configureStore(initialState) {
   const store = createStoreWithMiddleware(
       rootReducer,
       initialState,
-      //DevTools.instrument()
       window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );
-
-
   return store
 }

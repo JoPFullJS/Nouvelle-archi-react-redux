@@ -3,7 +3,7 @@ import {
 	GET_INTERVENTIONS_REQUEST,GET_INTERVENTIONS_SUCCESS,GET_INTERVENTIONS_FAILURE
 	} from '../constants/actionTypes';
 
-const initialState = {
+export const initialState = {
 	interventionsList: null,
 	lastRequest: null
 };
@@ -11,6 +11,7 @@ const initialState = {
 export const InterventionsReducer = (state = initialState, action) => {
 
 	const {data, type, request, error} = action;
+	
 
 	switch (type) {
 		case GET_INTERVENTIONS_REQUEST:
@@ -19,6 +20,7 @@ export const InterventionsReducer = (state = initialState, action) => {
 				lastRequest: request,
 			};
 		case GET_INTERVENTIONS_SUCCESS:
+		
 			return {
 				...state,
 				interventionsList: data,

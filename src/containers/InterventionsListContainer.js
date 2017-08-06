@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {getInterventions} from '../actions/getInterventions';
-import {InterventionsList} from '../components/InterventionsList';
+import { connect } from 'react-redux';
+import getInterventions from '../actions/getInterventions';
+import { InterventionsList } from '../components';
 
+import CircularProgress from 'material-ui/CircularProgress';
 
 const mapStateToProps = (state) => {
+  console.log(state)
   return {
-    interventionsList: state.intervention.interventionsList,
+    interventions: state.intervention.interventionsList,
   }
 };
 
@@ -18,25 +20,25 @@ const mapDispatchToProps = (dispatch) => {
 
 class InterventionsListContainer extends Component {
 
-  componentWillMount(){
-    console.log('GrandChild did mount.');
-    this.props.getInterventions();
+  componentDidMount(){
+    this.props.getInterventions()  
   }
-
-
+  
+  
   render() {
-    const { interventionsList } = this.props;
-      if(interventionsList != null){
-          return (
-            <InterventionsList interventionsList={ interventionsList } />
-  	      );
-      }
-      else{
-        return(console.log('Loading...'));
-        
-      }
-      
-  }
+    const { interventions } = this.props;
+    console.log(interventions)
+    if(interventions != null){
+        return(
+        <InterventionsList interventionsList={interventions} />
+      );  
+    }
+    else{
+      return( 
+        <CircularProgress />
+      );
+    }
+       
+  };
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(InterventionsListContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(InterventionsListContainer);

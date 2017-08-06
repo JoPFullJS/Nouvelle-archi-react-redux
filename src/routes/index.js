@@ -7,5 +7,6 @@ import InterventionsListContainer from '../containers/InterventionsListContainer
 export default (
 	<Route path="/" component={App}>
 		<IndexRoute component={InterventionsListContainer} />
+		<Route path="interventions" component={InterventionsListContainer}/>
 	</Route>
-)
+);

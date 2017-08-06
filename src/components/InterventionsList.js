@@ -1,19 +1,18 @@
 import React from 'react';
 
 
-export const InterventionsList = ({interventionsList}) => { 
-console.log(interventionsList)
+const InterventionsList = ({interventionsList}) => { 
 		return (
 			<div>
+
 				{interventionsList.map((intervention, index) =>
 	            <div key={index}>
-	              <span>{intervention.id}</span>
+	              <span>{intervention.description}</span>
             	</div>
-        )}
+        		)} 
 
 			</div>
 		);
 }
-
 
 export default InterventionsList;
