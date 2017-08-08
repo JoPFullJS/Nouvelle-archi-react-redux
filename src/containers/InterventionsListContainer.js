@@ -20,17 +20,35 @@ const mapDispatchToProps = (dispatch) => {
 
 class InterventionsListContainer extends Component {
 
+    state = {
+      open: null
+    };
+
+  
+
   componentDidMount(){
-    this.props.getInterventions()  
+    this.props.getInterventions();
+  }
+
+
+  AffichageUpdate = (idMessage) => {
+
+    this.setState({
+      open: idMessage
+    });
   }
   
-  
   render() {
+ 
     const { interventions } = this.props;
-    console.log(interventions)
+
     if(interventions != null){
         return(
-        <InterventionsList interventionsList={interventions} />
+        <InterventionsList 
+          interventionsList={interventions} 
+          AffichageUpdate={this.AffichageUpdate}
+          dialogOpen={this.state.open}
+        />
       );  
     }
     else{

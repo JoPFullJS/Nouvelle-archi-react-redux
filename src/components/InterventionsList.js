@@ -3,7 +3,9 @@ import { Common } from '../assets/css';
 
 import {Link} from 'react-router'
 
-const InterventionsList = ({interventionsList}) => { 
+
+
+const InterventionsList = ({interventionsList, AffichageUpdate, dialogOpen}) => { 
 		return (
 			<section style={Common.sectionArticle} >
 
@@ -16,7 +18,15 @@ const InterventionsList = ({interventionsList}) => {
 							</div>
 						</header>
 						<p style={Common.servicesSsTitre} > {intervention.description} </p>
-						<div><Link style={Common.linkTravx} to={"presentation/domaines-intervention/" + intervention.slug}>En savoir plus !</Link></div>
+						{intervention.id === dialogOpen && 
+							<p> {"ici"} </p>
+						}
+						<div>
+							<Link 
+								style={Common.linkTravx} 
+								onClick={ () => AffichageUpdate(intervention.id) }
+							>En savoir plus !</Link>
+						</div>
 
 					</article>
 				)} 
