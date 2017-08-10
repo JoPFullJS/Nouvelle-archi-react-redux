@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 
 import {browserHistory } from 'react-router';
 
-import Root from './containers/Root/Root';
+import Root from './routes/Root/Root';
 import configureStore from './store';
 import {syncHistoryWithStore} from 'react-router-redux';
 
@@ -20,4 +20,3 @@ const history = syncHistoryWithStore(browserHistory, store);
 ReactDOM.render(
 	<Root store={store} history={history}/>
 	, document.getElementById('root'));
-

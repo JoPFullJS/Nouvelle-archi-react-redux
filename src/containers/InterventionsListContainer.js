@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import getInterventions from '../actions/getInterventions';
+import getInterventions from '../redux/actions/getInterventions';
 import { InterventionsList } from '../components';
 
 import CircularProgress from 'material-ui/CircularProgress';
@@ -23,8 +23,6 @@ class InterventionsListContainer extends Component {
     state = {
       open: null
     };
-
-  
 
   componentDidMount(){
     this.props.getInterventions();

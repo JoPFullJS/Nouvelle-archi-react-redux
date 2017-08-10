@@ -1,7 +1,7 @@
 //Liste des actions
 import {
 	GET_INTERVENTIONS_REQUEST,GET_INTERVENTIONS_SUCCESS,GET_INTERVENTIONS_FAILURE
-	} from '../constants/actionTypes';
+	} from '../types/actionTypes';
 
 export const initialState = {
 	interventionsList: null,

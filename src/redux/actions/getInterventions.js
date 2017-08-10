@@ -5,7 +5,7 @@ import axios from 'axios';
 //Liste des actions
 import {
 	GET_INTERVENTIONS_REQUEST,GET_INTERVENTIONS_SUCCESS,GET_INTERVENTIONS_FAILURE
-} from '../constants/actionTypes';
+} from '../types/actionTypes';
 
 //Point d'entré de notre API
 const ROOT_URI = axios.create({
